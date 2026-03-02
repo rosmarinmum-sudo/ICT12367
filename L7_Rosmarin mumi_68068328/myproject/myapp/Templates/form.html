@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+    <style>
+        body {
+            background: linear-gradient(120deg, #f0f4f8 0%, #e0eafc 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+        .card {
+            background: #fff;
+            padding: 36px 28px;
+            border-radius: 18px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.10);
+            width: 100%;
+            max-width: 420px;
+            border: 2px solid #6dd5ed;
+        }
+        .form-title {
+            font-weight: bold;
+            font-size: 1.7rem;
+            text-align: center;
+            margin-bottom: 28px;
+            color: #2193b0;
+            letter-spacing: 1px;
+        }
+        label {
+            font-weight: bold;
+            font-size: 0.97rem;
+            margin-bottom: 7px;
+            display: block;
+            color: #555;
+        }
+        input, select {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 20px;
+            border: 1.5px solid #b2bec3;
+            border-radius: 9px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            background: #f8fafc;
+            transition: border 0.2s;
+        }
+        input:focus, select:focus {
+            border: 1.5px solid #2193b0;
+            outline: none;
+        }
+        .submit-btn {
+            background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+            color: #fff;
+            border: none;
+            border-radius: 9px;
+            padding: 13px;
+            font-size: 1.13rem;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(67,233,123,0.10);
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #38f9d7 0%, #43e97b 100%);
+            box-shadow: 0 4px 16px rgba(67,233,123,0.18);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="form-title">บันทึกข้อมูลพนักงาน</div>
+        <form>
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="position">Position</label>
+            <select id="position" name="position">
+                <option>Manager</option>
+            </select>
+
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
