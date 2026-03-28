@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+    
+    {% if success %}
+    <div class="alert alert-success" role="alert">
+        บันทึกข้อมูล "{{ name }}" เรียบร้อยแล้ว
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card p-4 shadow border-0" style="background-color: #f8f9fa;">
+                <div class="card-header border-0 pb-0" style="background-color: transparent;">
+                    <h4 class="fw-bold" style="color: blue;">แบบฟอร์มบันทึกข้อมูลประชากร</h4>
+                </div>
+                <form method="post" action="" id="registerForm">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">ชื่อประชากร</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="กรุณากรอกชื่อ-นามสกุล">
+                    </div>
+                    <div class="mb-3">
+                        <label for="age" class="form-label">อายุ</label>
+                        <input type="number" class="form-control" id="age" name="age" placeholder="กรุณากรอกอายุเป็นตัวเลข">
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn mx-1" style="background-color:#FF1493; color:white;">ลงทะเบียน</button>
+                        <button type="button" id="clearBtn" class="btn mx-1" style="background-color:#FF8C00; color:white;">ล้างข้อมูล</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.getElementById('clearBtn').addEventListener('click', function() {
+        // คำสั่งรีเซ็ตค่าทั้งหมดในฟอร์ม
+        document.getElementById('registerForm').reset();
+    });
+</script>
+{% endblock %}
