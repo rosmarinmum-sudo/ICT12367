@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+    <div class="card shadow-sm" style="max-width: 600px; margin: 0 auto;">
+        <div class="card-header text-white text-center" style="background-color: #0d6efd;">
+            <h4 class="mb-0">แก้ไขข้อมูลประชากร</h4>
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="mb-3">
+                    <label class="form-label">ชื่อประชากร</label>
+                    <input type="text" name="name" class="form-control" value="{{ person.name }}" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">อายุ</label>
+                    <input type="number" name="age" class="form-control" value="{{ person.age }}" required>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn" style="background-color: #E11584; color: white;">บันทึกการแก้ไข</button>
+                    <a href="/" class="btn btn-secondary">ยกเลิก</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
